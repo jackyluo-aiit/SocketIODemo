@@ -56,5 +56,10 @@ def update_handler(json):
     emit('update', {'text': json['text']}, broadcast=True)
 
 
+@socketio.on('connect')
+def connect():
+    print('connected')
+
+
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=8001, debug=True)
